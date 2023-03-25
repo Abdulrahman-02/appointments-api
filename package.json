@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/Abdulrahman-02/appointments-api/issues"
   },
-  "homepage": "https://github.com/Abdulrahman-02/appointments-api#readme"
+  "homepage": "https://github.com/Abdulrahman-02/appointments-api#readme",
+  "dependencies": {
+    "firebase": "^9.18.0",
+    "firebase-admin": "^11.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.9"
+  }
 }
