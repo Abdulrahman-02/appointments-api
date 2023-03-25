@@ -1,0 +1,11 @@
+{
+    "type": "string",
+    "date": "2023-03-31T09:00:00",
+    "donorFirstName": "string",
+    "donorLastName": "string",
+    "donorDOB": "1990-01-01",
+    "donorEmail": "string",
+    "donorMobile": "string",
+    "hospitalId": "string",
+    "userId": "string"
+}
