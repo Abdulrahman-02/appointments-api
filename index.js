@@ -1,6 +1,7 @@
-import admin from "firebase-admin";
-import { Appointment } from './Appointment';
-// const admin = require("firebase-admin");
+// import admin from "firebase-admin";
+// import { Appointment } from './Appointment';
+
+const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -54,10 +55,10 @@ app.get('/appointments', async (req, res) => {
     try {
         // retrieve appointments from Firestore for the authenticated user
         const appointmentsRef = await db.collection('appointments').where('userId', '==', req.user.uid).get();
-        const appointments: Appointment[] = [];
-        
+        const appointments = [];
+
         appointmentsRef.forEach((doc) => {
-            appointments.push({ id: doc.id, ...doc.data() } as Appointment);
+            appointments.push({ id: doc.id, ...doc.data() });
         });
 
         return res.status(200).json(appointments);
