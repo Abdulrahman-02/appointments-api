@@ -1,9 +1,20 @@
-const express = require('express');
-const app = express();
 const appointmentsRouter = require('./routes/appointments.router');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-app.use(express.json());
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json());
+
+// API endpoint to check if the server is running
+app.get('/', (req, res) => {
+    res.status(200).json({ message: 'Server is running' });
+});
+
+// Use appointments router for managing appointments
 app.use('/appointments', appointmentsRouter);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`);
+});
