@@ -1,0 +1,8 @@
+ -
+node_modules
+serviceAccountKey.json
+pacakge.json
+package-lock.json
+GPT.md
+firebaseConfig.ts
+```
