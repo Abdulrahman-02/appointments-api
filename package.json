@@ -4,6 +4,7 @@
   "description": "RESTful API for managing blood donation appointments",
   "main": "index.js",
   "scripts": {
+    "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +21,8 @@
     "axios": "^1.3.4",
     "express": "^4.18.2",
     "firebase": "^9.18.0",
-    "firebase-admin": "^11.5.0"
+    "firebase-admin": "^11.5.0",
+    "fs": "^0.0.1-security"
   },
   "devDependencies": {
     "@types/node": "^18.15.9"

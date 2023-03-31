@@ -1,3 +1,5 @@
+const https = require("https");
+const fs = require("fs");
 const express = require('express');
 const bodyParser = require('body-parser');
 const firebase = require('firebase-admin');
@@ -11,8 +13,8 @@ const app = express();
 const serviceAccount = require('./serviceAccountKey.json');
 firebase.initializeApp({
     credential: firebase.credential.cert(serviceAccount),
-    databaseURL: 'https://pulse-4b296-default-rtdb.firebaseio.com',
-    storageBucket: 'gs://pulse-4b296.appspot.com'
+    databaseURL: 'https://stellar-acre-379720-default-rtdb.firebaseio.com',
+    storageBucket: 'gs://stellar-acre-379720.appspot.com'
 });
 
 // Middleware
@@ -26,6 +28,12 @@ app.use('/qr', QRRoutes);
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+https.createServer(
+    {
+       key: fs.readFileSync('key.pem'),
+       cert: fs.readFileSync('cert.pem'), 
+    },
+    app
+    ).listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
